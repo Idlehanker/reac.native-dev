@@ -68,6 +68,7 @@ export default class Touchables extends React.Component {
 const styles = StyleSheet.create({
     container: {
         paddingTop: 60,
+
         alignItems: 'center'
     },
     button: {
