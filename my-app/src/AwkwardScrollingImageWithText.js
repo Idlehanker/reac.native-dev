@@ -12,6 +12,11 @@ import AlignItemsBasics from './layout/AlignItemsBasics'
 import PizzaTranslator from './input/PizzaTranslator'
 import ButtonBasics from './controls/ButtonBasics'
 import Touchables from './controls/Touchables'
+import FlatListBasics from './data-view/FlatListBasics'
+
+import SectionListBasics from './data-view/SectionListBasics'
+
+import FetchExample from './network/FetchExample'
 
 class AwkwardScrollingImageWithText extends Component {
 
@@ -46,8 +51,12 @@ class AwkwardScrollingImageWithText extends Component {
         <AlignItemsBasics/>
         <PizzaTranslator/>
 
-        <ButtonBasics />
-        <Touchables />
+        <ButtonBasics/>
+        <Touchables/>
+        <FlatListBasics/>
+        <SectionListBasics/>
+
+        <FetchExample/>
 
       </ScrollView>
     )
