@@ -8,6 +8,10 @@ import FixedDimensionsBasics from './layout/FixedDimensionsBasics'
 import FlexDimensionsBasics from './layout/FlexDimensionsBasics'
 import FlexDirectionBasics from './layout/FlexDirectionBasics'
 import JustifyContentBasics from './layout/JustifyContentBasics'
+import AlignItemsBasics from './layout/AlignItemsBasics'
+import PizzaTranslator from './input/PizzaTranslator'
+import ButtonBasics from './controls/ButtonBasics'
+import Touchables from './controls/Touchables'
 
 class AwkwardScrollingImageWithText extends Component {
 
@@ -39,6 +43,11 @@ class AwkwardScrollingImageWithText extends Component {
         <FlexDimensionsBasics/>
         <FlexDirectionBasics/>
         <JustifyContentBasics/>
+        <AlignItemsBasics/>
+        <PizzaTranslator/>
+
+        <ButtonBasics />
+        <Touchables />
 
       </ScrollView>
     )
