@@ -5,7 +5,14 @@ import {StackNavigator} from 'react-navigation'
 export default class HomePage extends React.Component {
 
     static navigationOptions = {
-        title: 'Home'
+        title: 'Home',
+        // headerStyle: {
+        //     backgroundColor: '#f4511e',
+        // },
+        // headerTintColor: '#fff',
+        // heraderTitleStyle:{
+        //     fontWeight: 'bold',
+        // },
     }
     
     render() {

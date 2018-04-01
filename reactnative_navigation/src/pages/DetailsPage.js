@@ -3,13 +3,31 @@ import {StyleSheet, View, Text, Button} from 'react-native'
 
 export default class DetailsPage extends React.Component {
 
-    // static navigationOptions = {     title: 'Details' }
+    /*version 1.0
+    static navigationOptions = {     title: 'Details' }
+    */
+    /*version 2.0
     static navigationOptions = ({navigation}) => {
         const {params} = navigation.state
         return {
             title: params
                 ? params.otherParam
                 : 'A Nested Details Screen'
+        }
+    }
+    */
+
+    //version 3.0
+    static navigationOptions = ({navigation, navigationOptions}) => {
+        const {params} = navigation.state
+        return {
+            title: params
+                ? params.otherParam
+                : 'A Nested Details Screen',
+            headerStyle: {
+                backgroundColor: navigationOptions.headerTintColor
+            },
+            headerTintColor: navigationOptions.headerStyle.backgroundColor
         }
     }
 
@@ -37,6 +55,10 @@ export default class DetailsPage extends React.Component {
                         .navigation
                         .navigate('Details')
                 }}/>
+                <Button
+                    title="Update the title"
+                    onPress={() => this.props.navigation.setParams({otherParam: 'Updated!'})}/>
+
                 <Button
                     title="Go back"
                     onPress={() => {
