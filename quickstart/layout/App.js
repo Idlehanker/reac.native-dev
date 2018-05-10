@@ -18,6 +18,7 @@ import {
 import Basic from './flex/laoyut1.js';
 import Justify from './flex/layout2';
 import AlignIt from './flex/layout3';
+import TextLy from './flex/textlayout'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu',
@@ -28,8 +29,8 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component < Props > {
   render() {
-    // return (<Basic/>);
-    return <AlignIt />
+    // return (<Basic/>); return <AlignIt />
+    return <TextLy/>;
   }
 }
 
