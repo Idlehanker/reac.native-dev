@@ -1,18 +1,26 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
+ * 
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  FlatList,
+  TouchableHighlight,
 } from 'react-native';
 
-import HKApp from './src/HKApp'
+// import HKApp from './src/HKApp'
+
+import {BasicList} from './src/BasicList'
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -22,21 +30,32 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+type State = {
+  data: Array<Object>,
+};
+export default class App extends Component < Props, State > {
+
   render() {
     return (
-      // <View style={styles.container}>
-      //   <Text style={styles.welcome}>
-      //     Welcome to React Native!
-      //   </Text>
-      //   <Text style={styles.instructions}>
-      //     To get started, edit App.js
-      //   </Text>
-      //   <Text style={styles.instructions}>
-      //     {instructions}
-      //   </Text>
-      // </View>
-      <HKApp />
+      /*
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit App.js
+        </Text>
+        <Text style={styles.instructions}>
+          {instructions}
+        </Text>
+      </View>
+      */
+      /*<
+      HKApp / >
+      */
+     <View backgroundColor = 'steelblue' style={{flex: 1}}>
+        <BasicList />
+      </View>
     );
   }
 }

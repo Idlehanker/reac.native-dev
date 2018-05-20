@@ -13,11 +13,18 @@
 ; "node_modules/react-native" but in the source repo it is in the root
 .*/Libraries/react-native/React.js
 
+
 ; Ignore polyfills
 .*/Libraries/polyfills/.*
 
 ; Ignore metro
 .*/node_modules/metro/.*
+
+; ignore react_native/Lisbraris/* after aupgrade to flow 0.61.0;
+; node_modules/react-native/Libraries/.*
+
+[untyped]
+./node_modules/react-native/Libraries/Animated/src/nodes/AnimatedInterpolation.js
 
 [include]
 
@@ -25,6 +32,7 @@
 node_modules/react-native/Libraries/react-native/react-native-interface.js
 node_modules/react-native/flow/
 node_modules/react-native/flow-github/
+; node_modules/
 
 [options]
 emoji=true
@@ -51,4 +59,4 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 
 [version]
-^0.67.0
+^0.72.0

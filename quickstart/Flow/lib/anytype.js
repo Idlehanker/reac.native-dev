@@ -1,10 +1,8 @@
-/**
- * @flow
- */
+
 //Warning: Do not mistake any with mixed.
 // Using any is completely unsafe, and should be avoided whenever possible.
-function add(one: any, two: any): number {
-    return one + two;
+function add(one, two) {
+  return one + two;
 }
 
 add(1, 2);
@@ -12,9 +10,9 @@ add('1', '2');
 add({}, []);
 
 // It's danger!!!
-// Even code that will cause runtime errors will not be caugth by Flow:
-function getNestedProperty(obj: any) {
-    return obj.foo.bar.baz;
+// Even code that will cause tuntime errors will not be caugth by Flow:
+function getNestedProperty(obj) {
+  return obj.foo.bar.baz;
 }
 getNestedProperty({});
 
