@@ -19,7 +19,8 @@ import {
 
 // import HKApp from './src/HKApp'
 
-import {BasicList} from './src/BasicList'
+// import {BasicList} from './src/BasicList';
+import SectionListScene from './src/SectionListScene';
 
 
 const instructions = Platform.select({
@@ -54,7 +55,8 @@ export default class App extends Component < Props, State > {
       HKApp / >
       */
      <View backgroundColor = 'steelblue' style={{flex: 1}}>
-        <BasicList />
+        {/* <BasicList /> */}
+        <SectionListScene/>
       </View>
     );
   }

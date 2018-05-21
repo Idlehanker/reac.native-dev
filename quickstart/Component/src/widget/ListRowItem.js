@@ -4,21 +4,20 @@
 'use strict';
 import React from 'react';
 import {View,TouchableHighlight,Text,StyleSheet } from 'react-native';
-import type {Props as FlatListProps} from 'FlatList';
+// import type {Props as FlatListProps} from 'FlatList';
+import type {Item} from '../Types';
 
 type Props = {
-    itemValue: any,
-    id: string,
-    onPressItem: (id: string)=>void,
+    item: Item,
+    index: number,
+    section?: string,
+    onPressItem: (section?:string, id: string, index: number)=>void,
 };
-
-type State = {};
 // type Props<ItemT> = RowItemProps & FlatListProps<ItemT>;
 
-export default class ListRowItem extends React.Component<Props, State>{
+export default class ListRowItem extends React.PureComponent<Props>{
 
     props: Props;
-    state: State;
     _touchableControl: null | TouchableHighlight;
 
     constructor(props: Props){
@@ -26,27 +25,41 @@ export default class ListRowItem extends React.Component<Props, State>{
     }
 
     _onPress = () => {
-        this.props.onPressItem(this.props.id + '');
+        const {section, item,index } = this.props;
+        this.props.onPressItem(section, String(item.id), index);
     }
 
     render(){
+        const {key} = this.props.item;
         return ( 
-        <TouchableHighlight
-            onPress = {this._onPress} style = {styles.container}>
-             <View style={styles.content}>
-                <Text>{this.props.itemValue}</Text>
-            </View>
-       </TouchableHighlight>)
-    }
+            <View style={{backgroundColor: 'white'}}>
+                <TouchableHighlight
+                    onPress = {this._onPress} >
+                    <View style = {styles.container}>
+                        <Text style={styles.content}>{key}</Text>
+                    </View>
+                </TouchableHighlight>)
+         </View>
+        )}
 }
 
 const styles = StyleSheet.create({
     container : {
-        height: 45,
+        flex: 1,
+        paddingLeft: 20,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        height: 54,
+        backgroundColor: 'white',
     },
     content: {
-        backgroundColor: 'white',
-        height: 44,
+        fontSize: 24,
+        flex:.6,
+        color: 'steelblue',
+        // textAlignVertical: ''
+        // backgroundColor: 'red'
+        // fontColor: 'steelsky',
     }
 }
 )

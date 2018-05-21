@@ -9,7 +9,8 @@
   "dependencies": {
     "react": "16.3.1",
     "react-native": "^0.55.4",
-    "react-native-deprecated-custom-components": "^0.1.2"
+    "react-native-deprecated-custom-components": "^0.1.2",
+    "react-native-navigation": "1.1.462"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
