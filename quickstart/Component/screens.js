@@ -10,8 +10,8 @@ import BasicListScene from './src/BasicListScene';
 
 
 export function registerScreens() {
-    Navigation.registerComponent('hker.SectionList', () => SectionListScene);
-    Navigation.registerComponent('hker.BasicList', () => BasicListScene);
+    Navigation.registerComponent('Section', () => SectionListScene);
+    Navigation.registerComponent('Basic', () => BasicListScene);
   }
 
 export function registerScreenVisibilityListener() {
