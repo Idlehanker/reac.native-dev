@@ -1,10 +1,12 @@
 /**
  * @flow
  */
-import React from 'react';
+import React,{PropTypes} from 'react';
 import {View,FlatList,Alert,Dimensions} from 'react-native';
 import ListRowItem from './widget/ListRowItem';
 import type {Item} from './Types'
+
+import Separator from './widget/Separator';
 
 import {
     FlatListData
@@ -16,7 +18,7 @@ type State = {
 };
 
 const {width, height} = Dimensions.get('window');
-class BasicList extends React.Component<Props, State>{
+export default class BasicList extends React.Component<Props, State>{
 
     constructor(props: Props){
         super(props);
@@ -25,26 +27,35 @@ class BasicList extends React.Component<Props, State>{
         }
     }
 
-    _onPressItem = (section?: string, id: string, index:number)=>{
-        // Alert.alert(id);
+    _onPressItem = ({id, index})=>{
+        // Alert.alert();
         Alert.alert(id+'-'+index);
     }
+
     _renderItem = ({item, index}) => (
         <ListRowItem onPressItem = {this._onPressItem} item = {item} index={index}/>
+        // <ListRowItem item = {item} index={index}/>
     )
-    _itemSeparator = (item)=>{
-        return <View style={{width: width, height: 1, backgroundColor:'gray'}}/> 
-    }
+
+    _itemSeparator = (item)=>(<Separator/>)
 
     render(){
         return (
-            <View style={{flex: 1, flexDirection: 'column', paddingTop :64}}>
+            <View style={{flex: 1, flexDirection: 'column'}}>
+                {/* <FlatList renderItem = {this._renderItem} data = {this.state.data} ItemSeparatorComponent={this._itemSeparator}/> */}
                 <FlatList renderItem = {this._renderItem} data = {this.state.data} ItemSeparatorComponent={this._itemSeparator}/>
              </View>
         );
     }
 }
 
-module.exports = {
-    BasicList
-}
+// BasicList.propTypes = {
+	// actions: PropTypes.object.isRequired,
+	// searchResults: PropTypes.object.isRequired,
+	// navigator: PropTypes.object
+// };
+
+
+// module.exports = {
+//     BasicList
+// }

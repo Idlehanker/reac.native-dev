@@ -2,18 +2,36 @@
  * @flow
  */
 'use strict';
-import React from 'react';
+import React,{PropTypes} from 'react';
 import {View,TouchableHighlight,Text,StyleSheet } from 'react-native';
 // import type {Props as FlatListProps} from 'FlatList';
 import type {Item} from '../Types';
 
+/*
 type Props = {
     item: Item,
     index: number,
     section?: string,
     onPressItem: (section?:string, id: string, index: number)=>void,
 };
+*/
 // type Props<ItemT> = RowItemProps & FlatListProps<ItemT>;
+
+type RequireProps = {
+    item: Item,
+    index: number,
+    onPressItem: (info: {
+        section?: string,
+        id: string,
+        index: number,
+    })=> void,
+};
+
+type OptionalProps = {
+    section?: ?string,
+}
+
+type Props = RequireProps & OptionalProps;
 
 export default class ListRowItem extends React.PureComponent<Props>{
 
@@ -26,7 +44,19 @@ export default class ListRowItem extends React.PureComponent<Props>{
 
     _onPress = () => {
         const {section, item,index } = this.props;
-        this.props.onPressItem(section, String(item.id), index);
+        const stringId: string = String(item.id) || '';
+
+        const info = section ? {
+                section: section, 
+                id: stringId, 
+                index: index
+            } :
+            {
+                id: stringId, 
+                index: index
+            }
+
+        this.props.onPressItem(info);
     }
 
     render(){
@@ -61,5 +91,11 @@ const styles = StyleSheet.create({
         // backgroundColor: 'red'
         // fontColor: 'steelsky',
     }
+})
+/*
+ListRowItem.PropTypes = {
+    item: PropTypes.object.isRequired,
+    index: PropTypes.number,
+
 }
-)
+*/

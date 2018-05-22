@@ -8,12 +8,12 @@ import { Navigation,ScreenVisibilityListener } from 'react-native-navigation';
 import SectionListScene from './src/SectionListScene';
 import BasicListScene from './src/BasicListScene';
 
-
 export function registerScreens() {
-    Navigation.registerComponent('Section', () => SectionListScene);
-    Navigation.registerComponent('Basic', () => BasicListScene);
+    Navigation.registerComponent('learning.Section', () => BasicListScene);
+    Navigation.registerComponent('learning.Basic', () => SectionListScene);
   }
 
+// /*
 export function registerScreenVisibilityListener() {
     new ScreenVisibilityListener({
         willAppear: ({screen}) => console.log(`Displaying screen ${screen}`),
@@ -22,3 +22,4 @@ export function registerScreenVisibilityListener() {
         didDisappear: ({screen}) => console.log(`Screen disappeared ${screen}`)
     }).register();
 }
+// */

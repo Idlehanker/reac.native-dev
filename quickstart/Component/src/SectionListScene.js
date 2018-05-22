@@ -6,6 +6,8 @@ import { Text, View, SectionList, Alert,Dimensions } from 'react-native';
 import {SectionListData} from '../test/Data';
 import ListRowItem from './widget/ListRowItem';
 
+import Separator from './widget/Separator';
+
 import type {SectionItem} from './Types';
 
 type Props = {};
@@ -24,7 +26,7 @@ export default class SectionListScene extends Component<Props,State> {
         };
     }
 
-    _onPressItem = (section?: string, id: string, index:number)=>{
+    _onPressItem = ({section, id, index})=>{
         // Alert.alert(id);
         Alert.alert((section || '') + '/'+id+'-'+index);
     }
@@ -45,9 +47,7 @@ export default class SectionListScene extends Component<Props,State> {
         item + index
     )
 
-    _itemSeparator = (item)=>{
-        return <View style={{width: width, height: 1, backgroundColor:'gray'}}/> 
-    }
+    _itemSeparator = (item)=>(<Separator/>)
 
     render() {
         return (
