@@ -13,7 +13,7 @@ registerScreens(); // this is where you register all of your app's screens
 const navigatorStyle = {
 	navBarTranslucent: true,
 	drawUnderNavBar: true,
-	navBarTextColor: 'white',
+	navBarTextColor: 'steelblue',
 	navBarButtonColor: 'white',
 	statusBarTextColorScheme: 'light',
 	drawUnderTabBar: true
@@ -33,25 +33,36 @@ class App extends React.Component<Props>{
     Navigation.startTabBasedApp({
       tabs : [
       {
-        label: 'One',
-        screen: 'learning.Section', // this is a registered name for a screen
+        label: 'Basic',
+        screen: 'learning.Basic', // this is a registered name for a screen
         icon: require('./img/one.png'),
         selectedIcon: require('./img/one_selected.png'), // iOS only
-        title: 'SectionList'
+        title: 'BasicList'
       },
       {
-        label: 'Two',
-        screen: 'learning.Basic',
+        label: 'Complex',
+        screen: 'learning.Section',
         icon: require('./img/three.png'),
         selectedIcon: require('./img/three_selected.png'), // iOS only
-        title: 'BasicList'
+        title: 'SectionList'
       }
     ],
     tabsStyle: {
       tabBarButtonColor: 'white',
       tabBarSelectedButtonColor: 'white',
       tabBarBackgroundColor: 'black'
-    }
+    },
+    appStyle: {
+      tabBarBackgroundColor: '#003a66',
+      navBarButtonColor: '#ffffff',
+      tabBarButtonColor: '#ffffff',
+      navBarTextColor: '#ffffff',
+      tabBarSelectedButtonColor: '#ff505c',
+      navigationBarColor: '#003a66',
+      navBarBackgroundColor: 'steelblue',
+      statusBarColor: '#002b4c',
+      tabFontFamily: 'BioRhyme-Bold',
+    },
   });
 
   /*

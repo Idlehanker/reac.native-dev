@@ -3,15 +3,19 @@
 /**
  * @flow
  */
-import { Navigation,ScreenVisibilityListener } from 'react-native-navigation';
+import {Navigation, ScreenVisibilityListener} from 'react-native-navigation';
 
 import SectionListScene from './src/SectionListScene';
 import BasicListScene from './src/BasicListScene';
 
+import BasicButtons from './src/component/basic/BasicButtons'
+
 export function registerScreens() {
-    Navigation.registerComponent('learning.Section', () => BasicListScene);
-    Navigation.registerComponent('learning.Basic', () => SectionListScene);
-  }
+    Navigation.registerComponent('learning.Basic', () => BasicListScene);
+    Navigation.registerComponent('learning.Basic.buttons', () => BasicButtons);
+
+    Navigation.registerComponent('learning.Section', () => SectionListScene);
+}
 
 // /*
 export function registerScreenVisibilityListener() {

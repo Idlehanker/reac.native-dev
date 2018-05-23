@@ -3,7 +3,7 @@
  */
 const FlatListData: Array < Object > = [{
         id: 1,
-        key: 'Devin'
+        key: 'Button'
     },
     {
         id: 2,
