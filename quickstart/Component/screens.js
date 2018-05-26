@@ -5,12 +5,15 @@
  */
 import {Navigation, ScreenVisibilityListener} from 'react-native-navigation';
 
+import Drawer from './src/android/Drawer';
+
 import SectionListScene from './src/SectionListScene';
 import BasicListScene from './src/BasicListScene';
 
 import BasicButtons from './src/component/basic/BasicButtons'
 
 export function registerScreens() {
+    Navigation.registerComponent('learning.Drawer', () => Drawer);
     Navigation.registerComponent('learning.Basic', () => BasicListScene);
     Navigation.registerComponent('learning.Basic.buttons', () => BasicButtons);
 
